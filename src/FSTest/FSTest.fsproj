@@ -18,6 +18,8 @@
         <Compile Include="Sessione02\Catamorfismi\CatamorphismsForMapping.fs"/>
         <Compile Include="Sessione02\Catamorfismi\DeepCopying.fs"/>
         <Compile Include="Sessione02\Memoization.fs"/>
+        <Compile Include="Session03\FunctionalRefactoring\App.fs" />
+        <Compile Include="Session03\FunctionalRefactoring\Tests.fs" />
     </ItemGroup>
 
     <ItemGroup>

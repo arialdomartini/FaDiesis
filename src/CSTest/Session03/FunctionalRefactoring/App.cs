@@ -21,16 +21,18 @@ static class App
 
     static Cart LoadCart(CartId id)
     {
-        if (id.Value.Contains("gold"))
+        if (id.Value == "some-gold-cart")
             return new Cart(id, new CustomerId("gold-customer"), new Amount(100));
-        if (id.Value.Contains("normal"))
+
+        if (id.Value == "some-normal-cart")
             return new Cart(id, new CustomerId("normal-customer"), new Amount(100));
+
         return Cart.MissingCart;
     }
 
     static DiscountRule LookupDiscountRule(CustomerId id)
     {
-        if (id.Value.Contains("gold")) return new DiscountRule(Half);
+        if (id.Value == "gold-customer") return new DiscountRule(Half);
 
         return DiscountRule.NoDiscount;
     }
