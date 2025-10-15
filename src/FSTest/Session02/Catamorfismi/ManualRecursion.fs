@@ -1,6 +1,6 @@
-module FSTest.Sessione02.Catamorfismi.ManualRecursion
+module FSTest.Session02.Catamorfismi.ManualRecursion
 
-open FSTest.Sessione02.Catamorfismi.SampleValues
+open FSTest.Session02.Catamorfismi.SampleValues
 open RecursiveTypes
 
 // let rec description (gift: Gift) =

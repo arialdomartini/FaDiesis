@@ -1,4 +1,4 @@
-module FSTest.Sessione02.Catamorfismi.Cata
+module FSTest.Session02.Catamorfismi.Cata
 
 open RecursiveTypes
 open SampleValues

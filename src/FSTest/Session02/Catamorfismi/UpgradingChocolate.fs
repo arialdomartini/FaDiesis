@@ -1,6 +1,6 @@
-module FSTest.Sessione02.Catamorfismi.UpgradingChocolate
+module FSTest.Session02.Catamorfismi.UpgradingChocolate
 
-open FSTest.Sessione02.Catamorfismi.ManualRecursion
+open FSTest.Session02.Catamorfismi.ManualRecursion
 open RecursiveTypes
 open Xunit
 open Swensen.Unquote

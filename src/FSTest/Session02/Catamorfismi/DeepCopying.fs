@@ -1,4 +1,4 @@
-module FSTest.Sessione02.Catamorfismi.DeepCopying
+module FSTest.Session02.Catamorfismi.DeepCopying
 
 open Cata
 open RecursiveTypes

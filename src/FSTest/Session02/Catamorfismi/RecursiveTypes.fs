@@ -1,4 +1,4 @@
-module FSTest.Sessione02.Catamorfismi.RecursiveTypes
+module FSTest.Session02.Catamorfismi.RecursiveTypes
 
 type Book = { title: string; price: decimal }
 

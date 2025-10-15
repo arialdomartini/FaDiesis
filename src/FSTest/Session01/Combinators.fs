@@ -1,4 +1,4 @@
-module FSTest.Sessione01.Combinators
+module FSTest.Session01.Combinators
 
 
 open System

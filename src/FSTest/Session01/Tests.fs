@@ -1,4 +1,4 @@
-﻿module FSTest.Sessione01.Tests
+﻿module FSTest.Session01.Tests
 
 open System
 open Xunit

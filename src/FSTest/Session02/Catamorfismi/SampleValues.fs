@@ -1,6 +1,6 @@
-module FSTest.Sessione02.Catamorfismi.SampleValues
+module FSTest.Session02.Catamorfismi.SampleValues
 
-open FSTest.Sessione02.Catamorfismi.RecursiveTypes
+open FSTest.Session02.Catamorfismi.RecursiveTypes
 
 
 let book = Book { title = "Wolf Hall"; price = 20m }

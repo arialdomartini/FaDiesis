@@ -7,17 +7,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Sessione01\Tests.fs"/>
-        <Compile Include="Sessione01\Combinators.fs"/>
+        <Compile Include="Session01\Tests.fs" />
+        <Compile Include="Session01\Combinators.fs" />
         
-        <Compile Include="Sessione02\Catamorfismi\RecursiveTypes.fs"/>
-        <Compile Include="Sessione02\Catamorfismi\SampleValues.fs"/>
-        <Compile Include="Sessione02\Catamorfismi\ManualRecursion.fs"/>
-        <Compile Include="Sessione02\Catamorfismi\Cata.fs"/>
-        <Compile Include="Sessione02\Catamorfismi\UpgradingChocolate.fs"/>
-        <Compile Include="Sessione02\Catamorfismi\CatamorphismsForMapping.fs"/>
-        <Compile Include="Sessione02\Catamorfismi\DeepCopying.fs"/>
-        <Compile Include="Sessione02\Memoization.fs"/>
+        <Compile Include="Session02\Catamorfismi\RecursiveTypes.fs" />
+        <Compile Include="Session02\Catamorfismi\SampleValues.fs" />
+        <Compile Include="Session02\Catamorfismi\ManualRecursion.fs" />
+        <Compile Include="Session02\Catamorfismi\Cata.fs" />
+        <Compile Include="Session02\Catamorfismi\UpgradingChocolate.fs" />
+        <Compile Include="Session02\Catamorfismi\CatamorphismsForMapping.fs" />
+        <Compile Include="Session02\Catamorfismi\DeepCopying.fs" />
+        <Compile Include="Session02\Memoization.fs" />
         <Compile Include="Session03\FunctionalRefactoring\App.fs" />
         <Compile Include="Session03\FunctionalRefactoring\Tests.fs" />
     </ItemGroup>

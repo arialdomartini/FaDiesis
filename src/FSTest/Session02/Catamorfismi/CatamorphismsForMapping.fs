@@ -1,6 +1,6 @@
-module FSTest.Sessione02.Catamorfismi.CatamorphismsForMapping
+module FSTest.Session02.Catamorfismi.CatamorphismsForMapping
 
-open FSTest.Sessione02.Catamorfismi.SampleValues
+open FSTest.Session02.Catamorfismi.SampleValues
 open RecursiveTypes
 open Cata
 
