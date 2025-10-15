@@ -1,12 +1,12 @@
 ﻿namespace CSTest.Session03.FunctionalRefactoring.Models;
 
-public class DiscountRule
+class DiscountRule
 {
-    public static readonly DiscountRule NoDiscount = new DiscountRule(c => throw new InvalidOperationException("no discount"));
+    internal static readonly DiscountRule NoDiscount = new DiscountRule(c => throw new InvalidOperationException("no discount"));
 
-    public Func<Cart, Amount> Compute { get; }
+    internal Func<Cart, Amount> Compute { get; }
 
-    public DiscountRule(Func<Cart, Amount> compute) => Compute = compute;
+    internal DiscountRule(Func<Cart, Amount> compute) => Compute = compute;
 
     Boolean Equals(DiscountRule other) => Equals(Compute, other.Compute);
 

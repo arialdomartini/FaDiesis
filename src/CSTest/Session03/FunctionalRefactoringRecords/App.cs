@@ -1,6 +1,6 @@
-using CSTest.Session03.FunctionalRefactoring.Models;
+using CSTest.Session03.FunctionalRefactoringRecords.Models;
 
-namespace CSTest.Session03.FunctionalRefactoring;
+namespace CSTest.Session03.FunctionalRefactoringRecords;
 
 static class App
 {

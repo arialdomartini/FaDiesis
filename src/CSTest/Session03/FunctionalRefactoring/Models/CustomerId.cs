@@ -1,10 +1,10 @@
 ﻿namespace CSTest.Session03.FunctionalRefactoring.Models;
 
-public class CustomerId
+class CustomerId
 {
-    public String Value { get; }
+    internal String Value { get; }
 
-    public CustomerId(String value) => Value = value;
+    internal CustomerId(String value) => Value = value;
 
     Boolean Equals(CustomerId other) => String.Equals(Value, other.Value);
 

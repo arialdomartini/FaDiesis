@@ -1,6 +1,6 @@
 ﻿namespace CSTest.Session03.FunctionalRefactoring.Models;
 
-public class Cart
+class Cart
 {
     public static readonly Cart MissingCart = new Cart(new CartId(""), new CustomerId(""), new Amount(0));
 
@@ -8,7 +8,7 @@ public class Cart
     public CustomerId CustomerId { get; }
     public Amount Amount { get; }
 
-    public Cart(CartId id, CustomerId customerId, Amount amount)
+    internal Cart(CartId id, CustomerId customerId, Amount amount)
     {
         Id = id;
         CustomerId = customerId;

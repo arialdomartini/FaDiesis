@@ -1,10 +1,10 @@
 ﻿namespace CSTest.Session03.FunctionalRefactoring.Models;
 
-public class Amount
+class Amount
 {
-    public Decimal Value { get; }
+    internal Decimal Value { get; }
 
-    public Amount(Decimal value) => Value = value;
+    internal Amount(Decimal value) => Value = value;
 
     Boolean Equals(Amount other) => Value == other.Value;
 

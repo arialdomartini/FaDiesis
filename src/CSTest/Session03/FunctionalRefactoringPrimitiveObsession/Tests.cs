@@ -1,18 +1,18 @@
-using CSTest.Session03.FunctionalRefactoring.Models;
+using CSTest.Session03.FunctionalRefactoringPrimitiveObsession.Models;
 
-namespace CSTest.Session03.FunctionalRefactoring;
+namespace CSTest.Session03.FunctionalRefactoringPrimitiveObsession;
 
 public class AppTests
 {
     [Fact]
     void HappyPath()
     {
-        var cartId = new CartId("some-gold-cart");
+        var cartId = "some-gold-cart";
         var storage = new SpyStorage();
 
         App.ApplyDiscount(cartId, storage);
 
-        var expected = new Cart(new CartId("some-gold-cart"), new CustomerId("gold-customer"), new Amount(50));
+        var expected = new Cart("some-gold-cart", "gold-customer", 50);
 
         Assert.Equal(expected, storage.Saved);
     }
@@ -20,7 +20,7 @@ public class AppTests
     [Fact]
     void NoDiscount()
     {
-        var cartId = new CartId("some-normal-cart");
+        var cartId = "some-normal-cart";
         var storage = new SpyStorage();
 
         App.ApplyDiscount(cartId, storage);
@@ -31,7 +31,7 @@ public class AppTests
     [Fact]
     void MissingCart()
     {
-        var cartId = new CartId("missing-cart");
+        var cartId = "missing-cart";
         var storage = new SpyStorage();
 
         App.ApplyDiscount(cartId, storage);
@@ -41,7 +41,7 @@ public class AppTests
 
     class SpyStorage : IStorage<Cart>
     {
-        public Cart Saved { get; private set; }
+        internal Cart? Saved { get; private set; }
 
         public void Flush(Cart item)
         {

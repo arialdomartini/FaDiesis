@@ -1,10 +1,10 @@
 ﻿namespace CSTest.Session03.FunctionalRefactoring.Models;
 
-public class CartId
+internal class CartId
 {
-    public String Value { get; }
+    internal String Value { get; }
 
-    public CartId(String value) => Value = value;
+    internal CartId(String value) => Value = value;
 
     Boolean Equals(CartId other) => String.Equals(Value, other.Value);
 
