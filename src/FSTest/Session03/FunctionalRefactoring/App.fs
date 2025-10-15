@@ -10,9 +10,7 @@ type IStorage<'t> = 't -> unit
 
 let missingCart = { Cart.id = CartId ""; customerId= CustomerId ""; amount = Amount 0m };
 
-type Computation = Cart -> Amount
-
-type DiscountRule = DiscountRule of Computation
+type DiscountRule = Cart -> Amount
 
 let half (cart: Cart) =
     let (Amount cartAmount) = cart.amount
@@ -26,8 +24,8 @@ let loadCart (id: CartId) =
     | _ -> missingCart;
 
 let lookupDiscountRule (CustomerId id) =
-    let halfDiscountRule = DiscountRule half
-    let noDiscountRule = DiscountRule (fun _ -> raise (InvalidOperationException "no discount"))
+    let halfDiscountRule = half
+    let noDiscountRule = (fun _ -> raise (InvalidOperationException "no discount"))
 
     match id with
     | "gold-customer" -> (true, halfDiscountRule)
@@ -48,7 +46,7 @@ let applyDiscount(cartId: CartId) (storage: IStorage<Cart>) =
     if cart <> missingCart
     then
         let discountRule = lookupDiscountRule cart.customerId;
-        let someDiscount, DiscountRule rule = discountRule
+        let someDiscount, lrule = discountRule
         if someDiscount
         then
             let discount = rule cart
