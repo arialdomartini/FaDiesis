@@ -1,4 +1,4 @@
-using FunctionalRefactoring.Models;
+using CSTest.Session03.FunctionalRefactoring.Models;
 
 namespace CSTest.Session03.FunctionalRefactoring;
 
