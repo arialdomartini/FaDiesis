@@ -12,3 +12,4 @@ dotnet sln add src/FSTest/FSTest.fsproj
 ```
 
 * [Day 1](docs/day-1.md)
+* [Day 2](docs/day-2.md)
