@@ -1,4 +1,4 @@
-﻿namespace CSTest;
+﻿namespace CSTest.Session01;
 
 static class FP
 {
