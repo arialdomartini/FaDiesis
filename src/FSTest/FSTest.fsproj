@@ -20,6 +20,9 @@
         <Compile Include="Session02\Memoization.fs" />
         <Compile Include="Session03\FunctionalRefactoring\App.fs" />
         <Compile Include="Session03\FunctionalRefactoring\Tests.fs" />
+        <Compile Include="Session04\Logo\Common.fs" />
+        <Compile Include="Session04\Logo\BasicOO.fs" />
+        <Compile Include="Session04\Logo\BasicFP.fs" />
     </ItemGroup>
 
     <ItemGroup>
