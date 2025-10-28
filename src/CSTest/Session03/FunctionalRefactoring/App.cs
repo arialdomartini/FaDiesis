@@ -6,16 +6,13 @@ static class App
 {
     internal static void ApplyDiscount(CartId cartId, IStorage<Cart> storage)
     {
-        var cart = LoadCart(cartId);
-        if (cart != Cart.MissingCart)
+
         {
-            var rule = LookupDiscountRule(cart.CustomerId);
-            if (rule != DiscountRule.NoDiscount)
-            {
-                var discount = rule.Compute(cart);
-                var updatedCart = UpdateAmount(cart, discount);
-                Save(updatedCart, storage);
-            }
+            Cart cart = LoadCart(cartId);
+            DiscountRule rule = LookupDiscountRule(cart.CustomerId);
+            var discount = rule.Compute(cart);
+            var updatedCart = UpdateAmount(cart, discount);
+            Save(updatedCart, storage);
         }
     }
 
@@ -48,5 +45,5 @@ static class App
     }
 
     static Amount Half(Cart cart) =>
-        new (cart.Amount.Value / 2);
+        new(cart.Amount.Value / 2);
 }

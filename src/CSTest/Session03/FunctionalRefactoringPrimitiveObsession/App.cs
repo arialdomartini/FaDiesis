@@ -6,14 +6,14 @@ static class App
 {
     internal static void ApplyDiscount(string cartId, IStorage<Cart> storage)
     {
-        var cart = LoadCart(cartId);
+        Cart cart = LoadCart(cartId);
         if (cart != Cart.MissingCart)
         {
-            var rule = LookupDiscountRule(cart.CustomerId);
+            DiscountRule rule = LookupDiscountRule(cart.CustomerId);
             if (rule != DiscountRule.NoDiscount)
             {
-                var discount = rule.Compute(cart);
-                var updatedCart = UpdateAmount(cart, discount);
+                decimal discount = rule.Compute(cart);
+                Cart updatedCart = UpdateAmount(cart, discount);
                 Save(updatedCart, storage);
             }
         }

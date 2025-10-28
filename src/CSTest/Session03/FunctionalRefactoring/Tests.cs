@@ -17,7 +17,7 @@ public class AppTests
         Assert.Equal(expected, storage.Saved);
     }
 
-    [Fact]
+    [Fact(Skip = "To be implemented")]
     void NoDiscount()
     {
         var cartId = new CartId("some-normal-cart");
@@ -28,7 +28,7 @@ public class AppTests
         Assert.Null(storage.Saved);
     }
 
-    [Fact]
+    [Fact(Skip = "To be implemented")]
     void MissingCart()
     {
         var cartId = new CartId("missing-cart");

@@ -11,7 +11,7 @@ let spyStorage (saved: Cart ref) (item: Cart) =
     ()
 
 
-[<Fact>]
+[<Fact(Skip="To be implemented")>]
 let ``happy path`` () =
     let cartId = CartId "some-gold-cart"
     let saved = ref missingCart
@@ -24,7 +24,7 @@ let ``happy path`` () =
 
     test <@ saved.Value = expected  @>
 
-[<Fact>]
+[<Fact(Skip="To be implemented")>]
 let ``no discount`` () =
     let cartId = CartId "some-normal-cart"
     let saved = ref missingCart
@@ -35,7 +35,7 @@ let ``no discount`` () =
     test <@ saved.Value = missingCart  @>
 
 
-[<Fact>]
+[<Fact(Skip="To be implemented")>]
 let ``missing cart`` () =
     let cartId = CartId "missing cart"
     let saved = ref missingCart

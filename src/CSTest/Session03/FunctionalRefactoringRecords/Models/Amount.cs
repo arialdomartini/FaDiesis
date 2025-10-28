@@ -1,4 +1,3 @@
 ﻿namespace CSTest.Session03.FunctionalRefactoringRecords.Models;
 
-record Amount(
-    Decimal Value);
+record struct Amount(Decimal Value);
