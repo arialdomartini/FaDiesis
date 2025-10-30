@@ -23,6 +23,8 @@
         <Compile Include="Session04\Logo\Common.fs" />
         <Compile Include="Session04\Logo\BasicOO.fs" />
         <Compile Include="Session04\Logo\BasicFP.fs" />
+        <Compile Include="Session04\OptionTest.fs" />
+        <Compile Include="Session04\Tree.fs" />
     </ItemGroup>
 
     <ItemGroup>

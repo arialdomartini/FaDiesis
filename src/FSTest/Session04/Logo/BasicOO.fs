@@ -3,21 +3,35 @@ open Common
 
 
 type Turtle(log) =
-    let initialPosition = {x = 0; y = 0}
+    let initialPosition = {Position.x = 0; y  = 0}
 
     // member private val currentPosition = initialPosition with get, set
     let mutable currentPosition = initialPosition
-
+    let mutable currentAngle: float<Degrees> = 0.0<Degrees>
+    let mutable currentPenStatus = PenDown
+    let mutable currentPenColor = Black
 
     member this.Move(distance) =
         let newPosition = calculateNewPosition distance currentAngle currentPosition
-        failwith "Not yet implemented"
+        match currentPenStatus with
+        | PenUp -> log $"Move to ({newPosition.x}, {newPosition.y})"
+        | PenDown -> drawDummyLine log currentPosition newPosition currentPenColor
+
+        currentPosition <- newPosition
 
     member this.Turn(angle) =
         let newAngle = (currentAngle + angle) % 360.0<Degrees>
         log $"Turn: {angle} from {currentAngle} -> {newAngle}"
-        failwith "Not yet implemented"
+        currentAngle <- newAngle
 
+    member this.PenUp() =
+        currentPenStatus <- PenUp
+
+    member this.PenDown() =
+        currentPenStatus <- PenDown
+
+    member this.SetColor(penColor) =
+        currentPenColor <- penColor
 
 
 open Xunit
