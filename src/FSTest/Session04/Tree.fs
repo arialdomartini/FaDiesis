@@ -35,8 +35,8 @@ let rec map' (tree: 'a Tree) f =
     match tree with
     | Leaf s -> Leaf (f s)
     | Node (l, r) ->
-        let l' = map l f
-        let r' = map r f
+        let l' = map' l f
+        let r' = map' r f
         Node (l', r')
 
 // Functor

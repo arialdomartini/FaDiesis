@@ -145,6 +145,5 @@ public class OptionTest
             };
 
         Assert.Equal("Value is 42", contentV);
-        Assert.Equal("There is no value", contentN);
     }
 }

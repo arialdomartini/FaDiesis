@@ -95,7 +95,7 @@ let ``draw a triangle`` () =
     let square = side >> side >> side >> side
     let squareAndThenTriangle = square >> paintTriangle
 
-    paintTriangle initialState |> ignore
+    triangle initialState
 
     Assert.Equal(
         """
