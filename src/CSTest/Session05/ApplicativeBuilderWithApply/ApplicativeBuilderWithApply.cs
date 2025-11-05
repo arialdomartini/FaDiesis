@@ -1,7 +1,7 @@
 // ReSharper disable InconsistentNaming
 
 #pragma warning disable CS8509 // The switch expression does not handle all possible values of its input type (it is not exhaustive).
-namespace CSTest.Session05.ApplicativeBuilderWithCurrying;
+namespace CSTest.Session05.ApplicativeBuilderWithApply;
 
 abstract record Result<A>
 {
@@ -40,7 +40,7 @@ static class ResultExtensions
                 _ => throw new ArgumentOutOfRangeException(nameof(rA))
             };
 
-    internal static Result<B> Ap<A, B>(this Result<Func<A, B>> f, Result<A> rA) =>
+    internal static Result<B> With<A, B>(this Result<Func<A, B>> f, Result<A> rA) =>
         f switch
         {
             Success<Func<A, B>> fSuccess => rA switch
@@ -55,8 +55,11 @@ static class ResultExtensions
             }
         };
 
-    internal static Func<A, Func<B, Func<C, Func<D, E>>>> Curried<A, B, C, D, E>(this Func<A, B, C, D, E> f) =>
+    private static Func<A, Func<B, Func<C, Func<D, E>>>> Curried<A, B, C, D, E>(this Func<A, B, C, D, E> f) =>
         a => b => c => d => f(a, b, c, d);
+
+    internal static Success<Func<A, Func<B, Func<C, Func<D, E>>>>> Apply<A, B, C, D, E>(this Func<A, B, C, D, E> f) =>
+        new(f.Curried());
 }
 
 record Person(
@@ -67,7 +70,7 @@ record Person(
 
 public class FunctorBuilder
 {
-    Person BuildPerson(string name, int age, int weight, DateTime birthday) =>
+    Func<string, int, int, DateTime, Person> BuildPerson => (name, age, weight, birthday) =>
         new(name, age, weight, birthday);
 
     Result<string> GetName(string s) => Result<string>.Success(s);
@@ -89,19 +92,12 @@ public class FunctorBuilder
     [Fact]
     void parsing_age_success_case()
     {
-        var name = GetName("Joe");
-        var age = GetAge("42");
-        var weight = GetWeight("80");
-        var birthDay = GetBirthday("1978-11-12");
-
-        var buildPerson = BuildPerson;
-
         var personR =
-            buildPerson.Curried().Map()
-                (name)
-                .Ap(age)
-                .Ap(weight)
-                .Ap(birthDay);
+            BuildPerson.Apply()
+                .With(GetName("Joe"))
+                .With(GetAge("42"))
+                .With(GetWeight("80"))
+                .With(GetBirthday("1978-11-12"));
 
         var expected = new Person(Name: "Joe", Age: 42, Weight: 80, Birthday: new DateTime(1978, 11, 12));
 
@@ -111,19 +107,12 @@ public class FunctorBuilder
     [Fact]
     void parsing_age_may_fail()
     {
-        var name = GetName("Joe");
-        var age = GetAge("eleven");
-        var weight = GetWeight("too thin");
-        var birthDay = GetBirthday("many years ago");
-
-        var buildPerson = BuildPerson;
-
         var personR =
-            buildPerson.Curried().Map()
-                (name)
-                .Ap(age)
-                .Ap(weight)
-                .Ap(birthDay);
+            BuildPerson.Apply()
+                .With(GetName("Joe"))
+                .With(GetAge("eleven"))
+                .With(GetWeight("too thin"))
+                .With(GetBirthday("many years ago"));
 
         List<string> expected =
         [
@@ -131,7 +120,7 @@ public class FunctorBuilder
             "'too thin' is not a number",
             "'many years ago' is not a date"
         ];
-        
+
         Assert.Equal(expected, personR.Errors());
     }
 }
