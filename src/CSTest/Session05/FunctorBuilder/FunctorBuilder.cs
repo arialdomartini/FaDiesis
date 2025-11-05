@@ -1,13 +1,11 @@
 // ReSharper disable InconsistentNaming
 
-namespace CSTest.Session05;
+namespace CSTest.Session05.FunctorBuilder;
 
 abstract record Result<A>
 {
     internal static Result<A> Success(A a) => new Success<A>(a);
     internal static Result<A> Failure(List<string> errors) => new Failure<A>(errors);
-
-
 }
 
 record Success<A>(
