@@ -50,6 +50,8 @@ let rec map f (tree: 'a Tree) =
         Node (l', r')
 
 
+let (<!>) = map
+
 [<Fact>]
 let ``length of string in leaves in a tree`` () =
     let treeWith3Leaves =
@@ -68,9 +70,8 @@ let ``length of string in leaves in a tree using map`` () =
         Node (Leaf "one", Node (Leaf "two", Leaf "three"))
 
     let len (s: string) = s.Length
-    let treeLen = map len
 
-    let tree = treeLen treeWith3Leaves
+    let tree = len <!> treeWith3Leaves
 
     let expected =
         Node (Leaf 3, Node (Leaf 3, Leaf 5))
