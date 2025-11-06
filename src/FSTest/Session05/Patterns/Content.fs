@@ -2,7 +2,6 @@ module FSTest.Session05.Patterns.Content
 
 open System
 
-
 type Email = Email of string
 
 type Role =
