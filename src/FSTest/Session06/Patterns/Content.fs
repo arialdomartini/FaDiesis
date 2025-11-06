@@ -1,4 +1,4 @@
-module FSTest.Session05.Patterns.Content
+module FSTest.Session06.Patterns.Content
 
 open System
 

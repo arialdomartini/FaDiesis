@@ -1,4 +1,4 @@
-module FSTest.Session05.Patterns.Repositories
+module FSTest.Session06.Patterns.Repositories
 //
 // open System
 // open Content

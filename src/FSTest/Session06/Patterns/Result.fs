@@ -1,4 +1,4 @@
-module FSTest.Session05.Patterns.Result
+module FSTest.Session06.Patterns.Result
 //
 //
 // type Result<'success> =
