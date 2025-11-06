@@ -25,6 +25,9 @@
         <Compile Include="Session04\Logo\BasicFP.fs" />
         <Compile Include="Session04\OptionTest.fs" />
         <Compile Include="Session04\Tree.fs" />
+        <Compile Include="Session05\Patterns\Result.fs" />
+        <Compile Include="Session05\Patterns\Content.fs" />
+        <Compile Include="Session05\Patterns\Repositories.fs" />
         <Compile Include="Session05\Patterns\ApplicativeBuilder.fs" />
         <Compile Include="Session05\Tree.fs" />
     </ItemGroup>
