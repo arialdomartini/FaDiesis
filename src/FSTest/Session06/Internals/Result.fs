@@ -1,4 +1,4 @@
-module FSTest.Session06.Patterns.Result
+module FSTest.Session06.Internals.Result
 
 type Result<'success> =
     | Ok of 'success

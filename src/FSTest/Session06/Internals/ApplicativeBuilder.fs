@@ -1,4 +1,4 @@
-module FSTest.Session06.Patterns.ApplicativeBuilder
+module FSTest.Session06.Internals.ApplicativeBuilder
 
 open System
 open Xunit

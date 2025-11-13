@@ -30,6 +30,10 @@
         <Compile Include="Session06\Patterns\Content.fs" />
         <Compile Include="Session06\Patterns\Repositories.fs" />
         <Compile Include="Session06\Patterns\ApplicativeBuilder.fs" />
+        <Compile Include="Session06\Internals\Result.fs" />
+        <Compile Include="Session06\Internals\Content.fs" />
+        <Compile Include="Session06\Internals\Repositories.fs" />
+        <Compile Include="Session06\Internals\ApplicativeBuilder.fs" />
     </ItemGroup>
 
     <ItemGroup>
