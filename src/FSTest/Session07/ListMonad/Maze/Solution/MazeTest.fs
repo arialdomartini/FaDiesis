@@ -130,3 +130,52 @@ let ``find the exit, large maze, instructions`` () =
 
     let instructions = paths |> List.exactlyOne |> toInstructions
     test <@ instructions = exit @>
+
+
+(*
+17 ■■■■■■■■■■■■■■■■■■
+16 ■■■■☆■■■■■■■■■■■■■
+15 ■▫▫▫▫▫▫▫▫▫▫▫▫■■■▫■
+14 ■■■■▫■■■■■■■▫■■■▫■
+13 ■■■■▫■■■■▫▫▫▫■■■▫■
+12 ■■■■▫▫▫▫▫■■■▫■■■▫▫
+11 ■■■■■■■■▫■■■▫■■■▫■
+10 ■■▫▫▫▫■■▫■■■▫■■■▫■
+09 ■■▫■■■■■■■■■▫■■■▫■
+08 ■■▫■■■▫▫▫▫■■▫▫▫▫▫■
+07 ■▫▫▫▫▫▫■■▫■■■■■▫■■
+06 ■▫■■■■■■■▫■■■■■▫■■
+05 ■▫■■▫▫▫▫▫▫▫▫▫▫▫▫▫■
+04 ■▫■■■■■■■■■■■■■■■■
+03 ■▫▫▫▫▫▫▫▫▫▫▫▫■■■▫■
+02 ■■■■■■■■■▫■■▫■■■▫■
+01 ■▫▫▫▫▫▫▫▫▫■■▫▫▫▫▫■
+00 ■▫■■■■■■■■■■■■■■■■
+
+*)
+
+
+[<Fact>]
+let ``find the shortest exit, large maze, instructions`` () =
+
+    let exit =
+        [ "1 Down"
+          "8 Right"
+          "7 Down"
+          "4 Right"
+          "4 Up"
+          "1 Right"]
+
+    let walls =
+        walls ()
+        |> Set.remove (17,12)
+
+    let paths = findAllPaths (18, 18) (4,16) walls
+
+    let instructions =
+        paths
+        |> List.sortBy _.Length
+        |> List.head
+        |> toInstructions
+
+    test <@ instructions = exit @>
