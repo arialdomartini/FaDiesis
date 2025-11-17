@@ -44,6 +44,12 @@
         <Compile Include="Session07\ListMonad\Maze\Solution\ListMonad.fs" />
         <Compile Include="Session07\ListMonad\Maze\Solution\Maze.fs" />
         <Compile Include="Session07\ListMonad\Maze\Solution\MazeTest.fs" />
+        <Compile Include="Session07\ListMonad\Maze\Usage\ListMonad.fs" />
+        <Compile Include="Session07\ListMonad\Maze\Usage\Maze.fs" />
+        <Compile Include="Session07\ListMonad\Maze\Usage\MazeTest.fs" />
+        <Compile Include="Session07\ListMonad\Maze\Implementation\ListMonad.fs" />
+        <Compile Include="Session07\ListMonad\Maze\Implementation\Maze.fs" />
+        <Compile Include="Session07\ListMonad\Maze\Implementation\MazeTest.fs" />
     </ItemGroup>
 
     <ItemGroup>

@@ -1,4 +1,4 @@
-module FSTest.Session07.ListMonad.Maze.Solution.Maze
+module FSTest.Session07.ListMonad.Maze.Implementation.Maze
 
 open ListMonad
 
@@ -13,7 +13,7 @@ let movePos (x, y) direction =
     | Right -> (x + 1, y)
 
 
-let findAllPaths (rows, cols) (start: Position) (walls: Set<Position>) =
+let findAllPaths (rows, cols) (start: Position) (walls: Set<Position>): Direction list list =
     let isExit (x,y) =
         x = 0
         || x = rows - 1
