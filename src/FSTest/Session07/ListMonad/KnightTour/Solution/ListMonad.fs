@@ -1,4 +1,4 @@
-module FSTest.Session07.ListMonad
+module FSTest.Session07.ListMonad.KnightTour.Solution.ListMonad
 
 let bind (xs: 'a list) (f: 'a -> 'b list) =
     [ for x in xs do

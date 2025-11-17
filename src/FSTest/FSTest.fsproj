@@ -34,8 +34,13 @@
         <Compile Include="Session06\Internals\Content.fs" />
         <Compile Include="Session06\Internals\Repositories.fs" />
         <Compile Include="Session06\Internals\ApplicativeBuilder.fs" />
-        <Compile Include="Session07\ListMonad.fs" />
-        <Compile Include="Session07\KnightsTour.fs" />
+        <Compile Include="Session07\ListMonad\KnightTour\Solution\ListMonad.fs" />
+        <Compile Include="Session07\ListMonad\KnightTour\Solution\KnightsTour.fs" />
+        <Compile Include="Session07\ListMonad\KnightTour\Usage\ListMonad.fs" />
+        <Compile Include="Session07\ListMonad\KnightTour\Usage\KnightsTour.fs" />
+        <Compile Include="Session07\ListMonad\KnightTour\Implementation\ListMonad.fs" />
+        <Compile Include="Session07\ListMonad\KnightTour\Implementation\KnightsTour.fs" />
+        <Compile Include="Session07\ListMonad\KnightTour\NativeSolution\KnightsTour.fs" />
     </ItemGroup>
 
     <ItemGroup>

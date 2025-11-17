@@ -1,4 +1,4 @@
-module FSTest.Session07.KnightsTour
+module FSTest.Session07.ListMonad.KnightTour.Solution.KnightsTour
 
 open ListMonad
 
@@ -15,7 +15,6 @@ module Knight =
           (x - 2, y + 1)
           (x - 1, y + 2) ]
 
-
     let doTour (boardSize: int) (start: Position) =
         let totalSquares = boardSize * boardSize
 
@@ -24,19 +23,17 @@ module Knight =
 
         let rec explore current path visited =
             let notYetVisited position = not (Set.contains position visited)
-
             let markAsVisited position = Set.add position visited
+            let visitedAll = visited |> Set.count = totalSquares
 
             list {
-                if visited |> Set.count = totalSquares then
+                if visitedAll then
                     return current :: path
                 else
                     let! nextPosition = nextPositions current
 
                     if nextPosition |> withinTheBoard && nextPosition |> notYetVisited then
-
                         let newVisited = markAsVisited nextPosition
-
                         return! explore nextPosition (current :: path) newVisited
                     else
                         return! []
