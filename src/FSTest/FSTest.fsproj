@@ -43,6 +43,7 @@
         <Compile Include="Session07\ListMonad\KnightTour\NativeSolution\KnightsTour.fs" />
         <Compile Include="Session07\ListMonad\Maze\Solution\ListMonad.fs" />
         <Compile Include="Session07\ListMonad\Maze\Solution\Maze.fs" />
+        <Compile Include="Session07\ListMonad\Maze\Solution\MazeTest.fs" />
     </ItemGroup>
 
     <ItemGroup>
