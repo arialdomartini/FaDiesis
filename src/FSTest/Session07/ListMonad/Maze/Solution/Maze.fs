@@ -15,14 +15,11 @@ let movePos (x, y) direction =
 
 let findAllPaths (rows, cols) (start: Position) (walls: Set<Position>) =
     let isExit (x,y) =
-        x = 0
-        || x = rows - 1
-        || y = 0
-        || y = cols - 1
+        x = 0 || x = rows - 1 || y = 0 || y = cols - 1
 
     let isValid (x, y)=
-        x >= 0 && x < cols && y >= 0 && y < rows && not (walls.Contains(x, y))
-
+        x >= 0 && x < cols && y >= 0 && y < rows
+        && not (walls.Contains(x, y))
 
     let rec explore current path visited =
 
