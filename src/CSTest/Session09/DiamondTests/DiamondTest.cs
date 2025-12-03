@@ -29,17 +29,17 @@ public class DiamondTest
                 useCase.Diamond
                     .ContainsAllLettersUpTo(useCase.Target));
 
-    [Property]
-    Property each_quadrant_row_contains_one_letter_only() =>
-        ForAll(
-            Quadrants.ToArbitrary(),
-            quadrant => quadrant.ContainsOnlyOneLetter());
+    [Property(Arbitrary = [typeof(Quadrant)])]
+    bool each_quadrant_row_contains_one_letter_only(List<string> quadrant) =>
+        quadrant.ContainsOnlyOneLetter();
 
-    [Property]
-    Property each_quadrant_has_letters_only_on_diagonal() =>
-        ForAll(
-            Quadrants.ToArbitrary(),
-            quadrant => quadrant.ContainsLettersOnDiagonal());
+    [Property(Arbitrary = [typeof(Quadrant)])]
+    bool letters_only_on_diagonal(List<string> quadrant) =>
+            quadrant.ContainsLettersOnDiagonal();
+
+    [Property(Arbitrary = [typeof(Quadrant)])]
+    bool each_quadrant_has_letters_only_on_diagonal2(List<string> quadrant) =>
+        quadrant.ContainsLettersOnDiagonal();
 
 
     [Fact]
