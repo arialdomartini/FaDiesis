@@ -10,7 +10,6 @@ public class ParseDontValidate01
         Func<int, Void> f = i => throw new NotImplementedException();
     }
 
-
     T Head<T>(List<T> xs) =>
         xs switch
         {
