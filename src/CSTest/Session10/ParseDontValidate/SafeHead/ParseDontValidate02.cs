@@ -1,6 +1,6 @@
-using static CSTest.Session09.ParseDontValidate.SafeHead.ParseDontValidate02.Maybe<int>;
+using static CSTest.Session10.ParseDontValidate.SafeHead.ParseDontValidate02.Maybe<int>;
 
-namespace CSTest.Session09.ParseDontValidate.SafeHead;
+namespace CSTest.Session10.ParseDontValidate.SafeHead;
 
 public class ParseDontValidate02
 {

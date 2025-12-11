@@ -1,7 +1,7 @@
 #pragma warning disable CS8509 // The switch expression does not handle all possible values of its input type (it is not exhaustive).
-namespace CSTest.Session09.ParseDontValidate.NoDuplicates;
+namespace CSTest.Session10.ParseDontValidate.NoDuplicates.CheckDuplicates;
 
-public static class ParseDontValidate01
+public static class Solid
 {
     static void CheckNoDuplicateKeys(List<int> xs)
     {
@@ -19,21 +19,6 @@ public static class ParseDontValidate01
 
     static List<int> ReturnsSomeList() => [1, 2, 3, 1, 43, 22];
 
-    private static int FragileContinue(List<int> keys)
-    {
-        return keys.Count;
-    }
-
-    static void FragileApp()
-    {
-        var keys = ReturnsSomeList();
-
-        CheckNoDuplicateKeys(keys);
-
-        FragileContinue(keys);
-    }
-
-
     private static int SolidContinue(HashSet<int> keys)
     {
         return keys.Count;
@@ -47,5 +32,4 @@ public static class ParseDontValidate01
 
         SolidContinue(noDuplicateKeys);
     }
-
 }

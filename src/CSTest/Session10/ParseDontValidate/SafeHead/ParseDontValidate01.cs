@@ -1,4 +1,4 @@
-namespace CSTest.Session09.ParseDontValidate.SafeHead;
+namespace CSTest.Session10.ParseDontValidate.SafeHead;
 
 class Void(Void Void);
 

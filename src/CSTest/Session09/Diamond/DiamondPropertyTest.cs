@@ -1,5 +1,3 @@
-using FsCheck;
-
 namespace CSTest.Session09.Diamond;
 using FsCheck.Xunit;
 

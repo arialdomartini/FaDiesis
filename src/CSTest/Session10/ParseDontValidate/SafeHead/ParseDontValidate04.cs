@@ -1,5 +1,5 @@
 #pragma warning disable CS8509 // The switch expression does not handle all possible values of its input type (it is not exhaustive).
-namespace CSTest.Session09.ParseDontValidate.SafeHead;
+namespace CSTest.Session10.ParseDontValidate.SafeHead;
 
 public class ParseDontValidate04
 {

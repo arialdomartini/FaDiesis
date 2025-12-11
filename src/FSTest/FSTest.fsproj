@@ -53,6 +53,7 @@
         <Compile Include="Session07\ListMonad\Maze\Native\Maze.fs" />
         <Compile Include="Session07\ListMonad\Maze\Native\MazeTest.fs" />
         <Folder Include="Session08\" />
+        <Folder Include="Session09\" />
     </ItemGroup>
 
     <ItemGroup>
