@@ -54,6 +54,7 @@
         <Compile Include="Session07\ListMonad\Maze\Native\MazeTest.fs" />
         <Folder Include="Session08\" />
         <Folder Include="Session09\" />
+        <Compile Include="Session10\ParseDontValidate.fs" />
     </ItemGroup>
 
     <ItemGroup>

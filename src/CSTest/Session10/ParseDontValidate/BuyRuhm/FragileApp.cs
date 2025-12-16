@@ -3,10 +3,15 @@ namespace CSTest.Session10.ParseDontValidate.NoDuplicates.BuyWeapons;
 
 public static class ParseDontValidate03
 {
+
+
+
     record Person(
         string Name,
         string SecondName,
         int Age);
+
+
 
     static void CheckAdult(int age)
     {
@@ -50,6 +55,7 @@ public static class ParseDontValidate03
         var person = ParsePerson(httpRequest);
 
         CheckAdult(person.Age);
+
 
         BuyWeapon(person);
     }

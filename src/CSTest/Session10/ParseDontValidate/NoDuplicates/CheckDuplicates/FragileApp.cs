@@ -9,14 +9,6 @@ public static class Fragile
             throw new ArgumentException("There are duplicates!");
     }
 
-    static HashSet<int> ParseNoDuplicateKeys(List<int> xs)
-    {
-        if (xs.Distinct().Count() != xs.Count)
-            throw new ArgumentException("There are duplicates!");
-
-        return xs.ToHashSet();
-    }
-
     static List<int> ReturnsSomeList() => [1, 2, 3, 1, 43, 22];
 
     private static int FragileContinue(List<int> keys)
