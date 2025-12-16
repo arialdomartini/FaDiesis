@@ -1,0 +1,21 @@
+module FSTest.Session11.StateMonad.CountingLeaves
+
+type Tree =
+    | Leaf
+    | Node of Tree * Tree
+
+let rec numberOfLeaves tree =
+    match tree with
+    | Leaf -> 1
+    | Node(l, r) -> numberOfLeaves l + numberOfLeaves r
+
+open Xunit
+open Swensen.Unquote
+
+[<Fact>]
+let ``counts the number of leaves in a tree`` () =
+    let treeWith3Leaves = Node(Leaf, Node(Leaf, Leaf))
+
+    let leaves = numberOfLeaves treeWith3Leaves
+
+    test <@ leaves = 3 @>

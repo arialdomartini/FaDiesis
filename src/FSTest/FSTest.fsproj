@@ -55,6 +55,8 @@
         <Folder Include="Session08\" />
         <Folder Include="Session09\" />
         <Compile Include="Session10\ParseDontValidate.fs" />
+        <Compile Include="Session11\StateMonad\CountingLeaves.fs" />
+        <Compile Include="Session11\StateMonad\BuildingSameShapeTrees.fs" />
     </ItemGroup>
 
     <ItemGroup>
