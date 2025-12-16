@@ -58,6 +58,8 @@
         <Compile Include="Session11\StateMonad\CountingLeaves.fs" />
         <Compile Include="Session11\StateMonad\BuildingSameShapeTrees.fs" />
         <Compile Include="Session11\StateMonad\MappingTrees.fs" />
+        <Compile Include="Session11\StateMonad\IndexingTrees\Mutable.fs" />
+        <Compile Include="Session11\StateMonad\IndexingTrees\Tuples.fs" />
     </ItemGroup>
 
     <ItemGroup>
