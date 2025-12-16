@@ -61,6 +61,7 @@
         <Compile Include="Session11\StateMonad\IndexingTrees\Mutable.fs" />
         <Compile Include="Session11\StateMonad\IndexingTrees\Tuples.fs" />
         <Compile Include="Session11\StateMonad\IndexingTrees\WithCount.fs" />
+        <Compile Include="Session11\StateMonad\IndexingTrees\Applicative.fs" />
     </ItemGroup>
 
     <ItemGroup>
