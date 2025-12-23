@@ -64,48 +64,48 @@ module Walk =
         else
             FallenDown
 
-    // let landLeftM n =
-    //     state {
-    //         let! manState = read ()
-    //         match manState with
-    //         | FallenDown -> return FallenDown  // Se già caduto, non fare nulla
-    //         | Walking pole ->
-    //             match landLeft n pole with
-    //             | Walking newPole ->
-    //                 do! write (Walking newPole)
-    //                 return Walking newPole
-    //             | FallenDown ->
-    //                 do! write FallenDown
-    //                 return FallenDown
-    //     }
-    //
-    // let landRightM n =
-    //     state {
-    //         let! manState = read ()
-    //         match manState with
-    //         | FallenDown -> return FallenDown  // Se già caduto, non fare nulla
-    //         | Walking pole ->
-    //             match landRight n pole with
-    //             | Walking newPole ->
-    //                 do! write (Walking newPole)
-    //                 return Walking newPole
-    //             | FallenDown ->
-    //                 do! write FallenDown
-    //                 return FallenDown
-    //     }
-
     let landLeftM n =
         state {
             let! manState = read ()
-            let newState = manState >>== (landLeft n)
-            do! write newState
-            return ()
+            match manState with
+            | FallenDown -> return FallenDown  // Se già caduto, non fare nulla
+            | Walking pole ->
+                match landLeft n pole with
+                | Walking newPole ->
+                    do! write (Walking newPole)
+                    return Walking newPole
+                | FallenDown ->
+                    do! write FallenDown
+                    return FallenDown
         }
 
     let landRightM n =
         state {
             let! manState = read ()
-            let newState = manState >>== (landRight n)
-            do! write newState
-            return ()
+            match manState with
+            | FallenDown -> return FallenDown  // Se già caduto, non fare nulla
+            | Walking pole ->
+                match landRight n pole with
+                | Walking newPole ->
+                    do! write (Walking newPole)
+                    return Walking newPole
+                | FallenDown ->
+                    do! write FallenDown
+                    return FallenDown
         }
+
+    // let landLeftM n =
+    //     state {
+    //         let! manState = read ()
+    //         let newState = manState >>== (landLeft n)
+    //         do! write newState
+    //         return ()
+    //     }
+    //
+    // let landRightM n =
+    //     state {
+    //         let! manState = read ()
+    //         let newState = manState >>== (landRight n)
+    //         do! write newState
+    //         return ()
+    //     }

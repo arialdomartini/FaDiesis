@@ -13,51 +13,48 @@ module Api =
           products = [ { name = "book"; price = 42m }
                        { name = "keyboard"; price = 350.99m } ] }
 
+type Program<'a> =
+    |  GetCart of (int * (Cart -> 'a Program))
+    |  WriteLine of (string * (unit -> 'a Program))
+    |  Value of 'a
 
-type Program<'t> =
-    | GetCart of (int * (Cart -> 't Program))
-    | WriteLine of (string  * (unit -> 't Program))
-    | Value of 't
+// Smart Constructors
+let getCart cartId = GetCart (cartId, fun cart -> Value cart)
+let writeLine s = WriteLine (s, fun () -> Value ())
 
-let program' () : decimal =
+// Free Monad
+let rec andThen (m: 'a Program) (nextContinuation: 'a -> 'b Program) =
+    match m with
+    | GetCart (cartId, continuation) ->
+        GetCart (cartId, fun cart ->
+            let pA = continuation cart
+            andThen pA nextContinuation)
 
-        let cartId = 42
-        let cart = Api.getCart cartId
+    | WriteLine (s, continuation) ->
+        WriteLine (s, fun () ->
+            andThen (continuation ()) nextContinuation)
+    | Value a ->
+        nextContinuation a
 
-        if Seq.length cart.products > 10 then
-            do Console.WriteLine "Too many, I am sorry"
-            0m
-        else
-            cart.products |> Seq.sumBy _.price
-
-// smart constructors
-let getCart cartId =
-    GetCart (cartId, (fun cart -> Value cart))
-
-let writeLine s =
-    WriteLine (s, (fun () -> Value ()))
-
-let rec bind (program: 'a Program) (continuation: 'a -> 'b Program) =
-    match program with
-    | GetCart (cartId, f: Cart -> 'a Program) ->
-        let fC (cart:Cart): 'b Program =
-            bind (f cart) continuation
-        GetCart (cartId, fC)
-
-    | WriteLine (s, f) ->
-        let fC () =
-            bind (f ()) continuation
-        WriteLine (s, fC)
-    | Value value -> continuation value
-
-let (>>=) = bind
+let (>>=) = andThen
 
 type InjectBuilder() =
-    member _.Bind(m, f) = m >>= f
-    member _.Return(v) = Value v
-    member _.ReturnFrom(m) = m
+    member this.Bind(m, f) = m >>= f
+    member this.Return(v) = Value v
 
-let inject = InjectBuilder ()
+let inject = InjectBuilder()
+
+let program'' () : decimal Program =
+    let cartId = 42
+    (getCart cartId) >>=
+        (fun cart ->
+
+            if Seq.length cart.products > 10 then
+                writeLine "Too many, I am sorry" >>= (fun () ->
+                    Value 0m)
+            else
+                Value (cart.products |> Seq.sumBy _.price)
+        )
 
 let program () : decimal Program =
     inject {
@@ -68,24 +65,63 @@ let program () : decimal Program =
             do! writeLine "Too many, I am sorry"
             return 0m
         else
-           return cart.products |> Seq.sumBy _.price
+            return (cart.products |> Seq.sumBy _.price)
     }
 
-let rec interpret (program: decimal Program) : decimal =
-    match program with
-    | GetCart (cartId, f) ->
+let rec int (p: 'a Program): 'a =
+    match p with
+    | GetCart (cartId, c)  ->
         let cart = Api.getCart cartId
-        interpret (f cart)
-    | WriteLine (s, f) ->
+        int (c cart)
+
+    | WriteLine (s, c) ->
         Console.WriteLine s
-        interpret (f ())
-    | Value value ->
-        value
+        int (c ())
+    | Value a -> a
+
+let program' () : decimal =
+    let cartId = 42
+    let cart = Api.getCart cartId
+
+    if Seq.length cart.products > 10 then
+        Console.WriteLine "Too many, I am sorry"
+        0m
+    else
+        cart.products |> Seq.sumBy _.price
+
+
+let rec interpret (program: 'a Program) : 'a =
+    match program with
+    | GetCart (cartId, continuation) ->
+        let cart = Api.getCart cartId
+        let p: Program<'a> = continuation cart
+        interpret p
+
+    | WriteLine (s, continuation) ->
+        Console.WriteLine s
+        interpret (continuation ())
+
+    | Value a -> a
+
+let rec testTnterpret (program: 'a Program) : 'a =
+    match program with
+    | GetCart (cartId, continuation) ->
+        let cart = Api.getCart cartId
+        let p: Program<'a> = continuation cart
+        interpret p
+
+    | WriteLine (s, continuation) ->
+        Console.WriteLine s
+        interpret (continuation ())
+
+    | Value a -> a
 
 
 [<Fact>]
 let ``hard to test`` () =
-    let programRappresentation = program ()
-    let result = interpret programRappresentation
+
+    let prog: decimal Program = program ()
+
+    let result = interpret prog
 
     test <@ result = 392.99m @>
