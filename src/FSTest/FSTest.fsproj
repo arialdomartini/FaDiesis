@@ -52,6 +52,13 @@
         <Compile Include="Session07\ListMonad\Maze\Implementation\MazeTest.fs" />
         <Compile Include="Session07\ListMonad\Maze\Native\Maze.fs" />
         <Compile Include="Session07\ListMonad\Maze\Native\MazeTest.fs" />
+        <Compile Include="Session12\DependencyInterpretation\FreeMonad_1.fs" />
+        <Compile Include="Session12\DependencyInterpretation\FreeMonad_2.fs" />
+        <Compile Include="Session12\DependencyInterpretation\FreeMonad_3.fs" />
+        <Compile Include="Session12\DependencyInterpretation\FreeMonad_4.fs" />
+        <Compile Include="Session12\DependencyInterpretation\FreeMonad_5.fs" />
+        <Compile Include="Session12\DependencyInterpretation\FreeMonad_6.fs" />
+        <Compile Include="Session12\DependencyInterpretation\FreeMonad_7.fs" />
         <Folder Include="Session08\" />
         <Folder Include="Session09\" />
         <Compile Include="Session10\ParseDontValidate.fs" />
@@ -65,7 +72,6 @@
         <Compile Include="Session11\StateMonad\IndexingTrees\Monad.fs" />
         <Compile Include="Session11\StateMonad\IndexingTrees\ComputationExpression.fs" />
         <Compile Include="Session11\WalkTheLine.fs" />
-        <Folder Include="Session12\" />
     </ItemGroup>
 
     <ItemGroup>
