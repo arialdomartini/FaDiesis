@@ -25,7 +25,7 @@ let (=<<) (f: 'a -> State<'s, 'b>) (a: State<'s, 'a>) =
 let (>>=) wca f = f =<< wca
 
 type StateBuilder() =
-    member this.Bind(f, m) = f >>= m
+    member this.Bind(m, f) = m >>= f
     member this.Return(v) = pure' v
 
 

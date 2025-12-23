@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <IsPackable>false</IsPackable>
-        <GenerateProgramFile>false</GenerateProgramFile>
+        <OutputType>Exe</OutputType>
     </PropertyGroup>
 
     <ItemGroup>
@@ -64,6 +64,8 @@
         <Compile Include="Session11\StateMonad\IndexingTrees\Applicative.fs" />
         <Compile Include="Session11\StateMonad\IndexingTrees\Monad.fs" />
         <Compile Include="Session11\StateMonad\IndexingTrees\ComputationExpression.fs" />
+        <Compile Include="Session11\WalkTheLine.fs" />
+        <Folder Include="Session12\" />
     </ItemGroup>
 
     <ItemGroup>

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSTest", "src\CSTest\CSTest
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSTest", "src\FSTest\FSTest.fsproj", "{43A029E1-72C0-4DF8-999C-DF64735D8F7D}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSExpectoSample", "src\FSExpectoSample\FSExpectoSample.fsproj", "{2670281D-D818-41AB-8CCB-1D6560FB0F05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{43A029E1-72C0-4DF8-999C-DF64735D8F7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43A029E1-72C0-4DF8-999C-DF64735D8F7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43A029E1-72C0-4DF8-999C-DF64735D8F7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2670281D-D818-41AB-8CCB-1D6560FB0F05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2670281D-D818-41AB-8CCB-1D6560FB0F05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2670281D-D818-41AB-8CCB-1D6560FB0F05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2670281D-D818-41AB-8CCB-1D6560FB0F05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DB7E16F8-BF29-4E59-BB89-F866F7F61EA4} = {8E0FB42E-F589-4411-8782-311EF1596504}
